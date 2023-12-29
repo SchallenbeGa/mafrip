@@ -24,7 +24,7 @@
                     <div class="flex justify-between items-center">
                         <a href="{{ route('shop.home.index') }}">
                             <img
-                                src="{{ bagisto_asset('images/logo.svg') }}"
+                                src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}"
                                 alt="Bagisto"
                                 width="131"
                                 height="29"
@@ -126,7 +126,7 @@
                 aria-label="Bagisto"
             >
                 <img
-                    src="{{ bagisto_asset('images/logo.svg') }}"
+                    src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}"
                     alt="Bagisto"
                     width="131"
                     height="29"
