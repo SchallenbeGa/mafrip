@@ -3,7 +3,7 @@
     <img src="./resources/views/components/logo.svg" alt="Logo" width=72 height=72>
   </a>
 
-  <h3 align="center">smugl</h3>
+  <h3 align="center">MaFrip</h3>
 
   <p align="center">
     Bagisto Website intended to be a online friperie
