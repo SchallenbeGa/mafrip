@@ -23,12 +23,7 @@
                 <x-slot:header>
                     <div class="flex justify-between items-center">
                         <a href="{{ route('shop.home.index') }}">
-                            <img
-                                src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}"
-                                alt="Bagisto"
-                                width="131"
-                                height="29"
-                            >
+                            Mafrip
                         </a>
                     </div>
                 </x-slot:header>
@@ -127,7 +122,7 @@
             >
                 <img
                     src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}"
-                    alt="Bagisto"
+                    alt="MaFrip"
                     width="131"
                     height="29"
                 >

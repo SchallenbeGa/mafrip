@@ -26,7 +26,7 @@
                 >
                     <img
                         src="{{ bagisto_asset('images/logo.svg') }}"
-                        alt="Bagisto "
+                        alt="MaFrip "
                         width="131"
                         height="29"
                     >

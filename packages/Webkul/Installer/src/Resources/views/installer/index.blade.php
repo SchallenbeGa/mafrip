@@ -55,7 +55,7 @@
                         <div class="grid gap-[16px]">
                             <img
                                 src="{{ bagisto_asset('images/bagisto-logo.svg', 'installer') }}"
-                                alt="Bagisto Logo"
+                                alt="MaFrip Logo"
                             >
 
                             <div class="grid gap-[6px]">
