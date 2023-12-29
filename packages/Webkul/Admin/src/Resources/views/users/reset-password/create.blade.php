@@ -9,7 +9,7 @@
             {{-- Logo --}}
             <img 
                 class="w-max" 
-                src="{{ bagisto_asset('images/logo.svg') }}" 
+                src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}" 
                 alt="Bagisto Logo"
             >
 
