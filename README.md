@@ -30,23 +30,9 @@
 - npm run dev
 - php artisan serve
 
-cron job : 
-* key rotator to re-encrypt project with new key every hour
-https://laravel.com/docs/9.x/encryption
-
-incoming : 
-* retrieve user info https://laravel.com/docs/9.x/requests (cloudfare db)
-* check pgp key for server and client side after login (todo)
-* exploit guard when laravel rotate (https://laravel.com/api/9.x/Illuminate/Auth/RequestGuard.html)
-* look at <a href="example_access_log.txt">log</a>
 
 ## What's included
-
-* https://github.com/mewebstudio/captcha
-* https://github.com/rawilk/laravel-app-key-rotator
-* https://github.com/spatie/crypto (pgp check & communicate)
-* https://github.com/spatie/laravel-permission
-* http://www.six-interbank-clearing.com/de/pain.001.001.03.ch.01.xsd 
+bagisto.
 
 ## Bugs and feature requests
 
