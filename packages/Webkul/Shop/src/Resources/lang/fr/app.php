@@ -631,7 +631,7 @@ return [
             'mini-cart' => [
                 'continue-to-checkout' => 'Continuer la commande',
                 'empty-cart'           => 'Votre panier est vide',
-                'offer-on-orders'      => 'Bénéficiez de jusqu\'à 30% de réduction sur votre 1ère commande',
+                'offer-on-orders'      => '',
                 'remove'               => 'Supprimer',
                 'see-details'          => 'Voir les détails',
                 'shopping-cart'        => 'Panier d\'achat',
@@ -740,7 +740,7 @@ return [
 
     'home' => [
         'index' => [
-            'offer'               => 'Bénéficiez de jusqu\'à 40% de réduction sur votre 1ère commande. FAITES VOS ACHATS MAINTENANT',
+            'offer'               => '',
             'resend-verify-email' => 'Renvoyer l\'e-mail de vérification',
             'verify-email'        => 'Vérifiez votre adresse e-mail',
         ],
