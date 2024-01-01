@@ -25,7 +25,7 @@
     @case('price')
         <div class="relative">
             <span class="absolute ltr:left-[15px] rtl:right-[15px] top-[50%] -translate-y-[50%] text-gray-500 dark:text-gray-300 {{ $attribute->code == 'price' ? 'text-[20px]' : '' }}">
-                {{ core()->currencySymbol(core()->getBaseCurrencyCode()) }}
+                
             </span>
 
             <x-admin::form.control-group.control
