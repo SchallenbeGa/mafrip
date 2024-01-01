@@ -319,7 +319,7 @@ return [
                 'account'       => 'Compte',
                 'compare'       => 'Comparer',
                 'cart'          => 'Panier',
-                'dropdown-text' => 'Gérez le panier, les commandes et la liste de souhaits',
+                'dropdown-text' => '',
                 'logout'        => 'Déconnexion',
                 'orders'        => 'Commandes',
                 'profile'       => 'Profil',
