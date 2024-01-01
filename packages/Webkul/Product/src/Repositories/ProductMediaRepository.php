@@ -62,11 +62,7 @@ class ProductMediaRepository extends Repository
                         $image->orientate();
                         $path = $this->getProductDirectory($product) . '/' . Str::random(40) . '.webp';
                         Storage::put($path, $image);
-                        $pat =  Storage::disk('public')->path($path);
-                        $ma = new ImageManager();
-                        $img = $ma->make($pat);
-                        $img->orientate();
-                        Storage::put($path, $img);
+                      
                     } else {
                         $path = $file->store($this->getProductDirectory($product));
                     }
