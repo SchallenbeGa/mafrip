@@ -740,7 +740,6 @@ return [
 
     'home' => [
         'index' => [
-            'offer'               => 'Get UPTO 40% OFF on your 1st order SHOP NOW',
             'resend-verify-email' => 'Resend Verification Email',
             'verify-email'        => 'Verify your email account',
         ],
