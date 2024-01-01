@@ -20,11 +20,7 @@
     {{-- Account Profile Hero Section --}}
     <div class="grid grid-cols-[auto_1fr] gap-[15px] items-center px-[20px] py-[25px] border border-[#E9E9E9] rounded-[12px]">
         <div class="">
-            <img
-                src="{{ $customer->image_url ??  bagisto_asset('images/user-placeholder.png') }}"
-                class="w-[60px] h-[60px] rounded-full"
-                alt="Profile Image"
-            >
+            
         </div>
 
         <div class="flex flex-col justify-between">
