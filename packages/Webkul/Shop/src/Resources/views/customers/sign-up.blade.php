@@ -23,12 +23,7 @@
                 class="m-[0_auto_20px_auto]"
                 aria-label="Bagisto "
             >
-                <img
-                    src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}"
-                    alt="MaFrip "
-                    width="131"
-                    height="29"
-                >
+             MaFrip
             </a>
         </div>
 
