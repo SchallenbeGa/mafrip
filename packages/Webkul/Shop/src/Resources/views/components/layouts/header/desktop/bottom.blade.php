@@ -10,12 +10,7 @@
             class="place-self-start -mt-[4px]"
             aria-label="Bagisto "
         >
-            <img
-                src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}"
-                width="131"
-                height="29"
-                alt="MaFrip"
-            >
+            
         </a>
 
         <v-desktop-category>
