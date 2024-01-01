@@ -66,7 +66,13 @@ class ProductMediaRepository extends Repository
     
                         Storage::put($path, $image);
                     } else {
-                        $path = $file->store($this->getProductDirectory($product));
+                        $manager = new ImageManager();
+
+                        $image = $manager->make($file)->encode('webp');
+                        $image->orientate();
+                        $path = $this->getProductDirectory($product) . '/' . Str::random(40) . '.webp';
+    
+                        Storage::put($path, $image);
                     }
 
                     $this->create([
