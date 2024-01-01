@@ -120,12 +120,7 @@
                 class="max-h-[30px]"
                 aria-label="Bagisto"
             >
-                <img
-                    src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}"
-                    alt="MaFrip"
-                    width="131"
-                    height="29"
-                >
+               MaFrip
             </a>
         </div>
 
@@ -264,12 +259,7 @@
                 required
             >
 
-            <button
-                type="button"
-                class="icon-camera flex items-center absolute top-[12px] right-[12px] pr-3 text-[22px]"
-                aria-label="Search"
-            >
-            </button>
+   
         </div>
     </form>
 </div>
