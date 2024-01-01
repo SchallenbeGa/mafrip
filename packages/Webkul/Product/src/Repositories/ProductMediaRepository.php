@@ -36,7 +36,7 @@ class ProductMediaRepository extends Repository
     {
         return 'product/' . $product->id;
     }
-
+    
     /**
      * Upload.
      *
@@ -53,31 +53,27 @@ class ProductMediaRepository extends Repository
         $previousIds = $this->resolveFileTypeQueryBuilder($product, $uploadFileType)->pluck('id');
 
         $position = 0;
-
-        if (! empty($data[$uploadFileType]['files'])) {
+        if (!empty($data[$uploadFileType]['files'])) {
             foreach ($data[$uploadFileType]['files'] as $indexOrModelId => $file) {
                 if ($file instanceof UploadedFile) {
                     if (Str::contains($file->getMimeType(), 'image')) {
                         $manager = new ImageManager();
-
                         $image = $manager->make($file)->encode('webp');
                         $image->orientate();
                         $path = $this->getProductDirectory($product) . '/' . Str::random(40) . '.webp';
-    
                         Storage::put($path, $image);
+                        $pat =  Storage::disk('public')->path($path);
+                        $ma = new ImageManager();
+                        $img = $ma->make($pat);
+                        $img->orientate();
+                        Storage::put($path, $img);
                     } else {
-                        $manager = new ImageManager();
-
-                        $image = $manager->make($file)->encode('webp');
-                        $image->orientate();
-                        $path = $this->getProductDirectory($product) . '/' . Str::random(40) . '.webp';
-    
-                        Storage::put($path, $image);
+                        $path = $file->store($this->getProductDirectory($product));
                     }
 
                     $this->create([
                         'type'       => $uploadFileType,
-                        'path'       => $path,
+                        'path'        => $path,
                         'product_id' => $product->id,
                         'position'   => ++$position,
                     ]);
