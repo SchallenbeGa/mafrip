@@ -7,11 +7,7 @@
     <div class="flex justify-center items-center h-[100vh]">
         <div class="flex flex-col gap-[20px] items-center">
             {{-- Logo --}}
-            <img 
-                class="w-max" 
-                src="{{ core()->getCurrentChannel()->logo_url ?? bagisto_asset('images/logo.svg') }}" 
-                alt="MaFrip Logo"
-            >
+        
 
             <div class="flex flex-col min-w-[300px] bg-white dark:bg-gray-900 rounded-[6px] box-shadow">
                 {{-- Login Form --}}
