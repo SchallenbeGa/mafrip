@@ -16,7 +16,7 @@
             href="{{ route('admin.dashboard.index') }}" 
             class="place-self-start -mt-[4px]"            
         >
-            
+            MaFrip
         </a>
 
         {{-- Mega Search Bar Vue Component --}}
