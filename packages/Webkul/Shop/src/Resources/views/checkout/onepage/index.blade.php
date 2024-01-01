@@ -24,12 +24,7 @@
                     class="flex min-h-[30px]"
                     aria-label="Bagisto "
                 >
-                    <img
-                        src="{{ bagisto_asset('images/logo.svg') }}"
-                        alt="MaFrip "
-                        width="131"
-                        height="29"
-                    >
+                   MaFrip
                 </a>
             </div>
         </div>
