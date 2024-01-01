@@ -425,7 +425,7 @@ return [
             ],
 
             'carousel' => [
-                'view-all' => 'Voir tout',
+                'view-all' => 'Tout voir',
             ],
         ],
 

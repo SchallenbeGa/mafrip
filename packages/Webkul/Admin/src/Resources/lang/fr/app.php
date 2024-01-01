@@ -38,7 +38,7 @@ return [
         'no-record'        => 'Aucun enregistrement trouvé',
         'read-all'         => 'Marquer comme lu',
         'title'            => 'Notifications',
-        'view-all'         => 'Voir tout',
+        'view-all'         => 'Tout voir',
 
         'order-status-messages' => [
             'completed'       => 'Commande terminée',
