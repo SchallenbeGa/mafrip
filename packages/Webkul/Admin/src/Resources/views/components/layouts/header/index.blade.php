@@ -21,7 +21,7 @@
 
         {{-- Mega Search Bar Vue Component --}}
         <v-mega-search>
-            <div class="flex items-center relative w-[525px] max-w-[525px] ltr:ml-[10px] rtl:mr-[10px]">
+            <div class="flex items-center relative max-w-[525px] ltr:ml-[10px] rtl:mr-[10px]">
                 <i class="icon-search text-[22px] flex items-center absolute ltr:left-[12px] rtl:right-[12px] top-[6px]"></i>
 
                 <input 
@@ -177,7 +177,7 @@
 
 @pushOnce('scripts')
     <script type="text/x-template" id="v-mega-search-template">
-        <div class="flex items-center relative w-[525px] max-w-[525px] ltr:ml-[10px] rtl:mr-[10px]">
+        <div class="flex items-center relative max-w-[525px] ltr:ml-[10px] rtl:mr-[10px]">
             <i class="icon-search text-[22px] flex items-center absolute ltr:left-[12px] rtl:right-[12px] top-[6px]"></i>
 
             <input 
