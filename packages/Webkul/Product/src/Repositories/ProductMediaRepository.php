@@ -50,21 +50,49 @@ class ProductMediaRepository extends Repository
         /**
          * Previous model ids for filtering.
          */
+        
         $previousIds = $this->resolveFileTypeQueryBuilder($product, $uploadFileType)->pluck('id');
-
+  
         $position = 0;
         if (!empty($data[$uploadFileType]['files'])) {
+            $c=0;
             foreach ($data[$uploadFileType]['files'] as $indexOrModelId => $file) {
                 if ($file instanceof UploadedFile) {
                     if (Str::contains($file->getMimeType(), 'image')) {
+                        $deg =  $data["img"][$indexOrModelId];
                         $manager = new ImageManager();
-                        $image = $manager->make($file)->encode('webp');
-                        $image->orientate();
+                        
                         $path = $this->getProductDirectory($product) . '/' . Str::random(40) . '.webp';
-                        Storage::put($path, $image);
-                      
+                        if($deg!=""){    
+                            $l=(explode(":",$deg));
+                    
+                            $image = $manager->make($file)
+                            ->rotate(-intval($l[1]))
+                            ->save("./storage/".$path);
+                        }else{    
+                            $image = $manager->make($file)
+                            ->save("./storage/".$path);
+                        }
+                       
+                        // #Storage::put($path, $image)
+                        // Storage::put("ole/tstew.jpg", $image);
                     } else {
-                        $path = $file->store($this->getProductDirectory($product));
+                        $deg =  $data["img"][$c];
+                      
+                        $manager = new ImageManager();
+                        
+                        $path = $this->getProductDirectory($product) . '/' . Str::random(40) . '.webp';
+                        if($deg!=""){    
+                            $l=(explode(":",$deg));
+                            $image = $manager->make($file)
+                            ->rotate(-intval($l[1]))
+                            ->save("./storage/".$path);
+                        }else{    
+                        
+                            $image = $manager->make($file)
+                            ->save("./storage/".$path);
+                        }
+                        
                     }
 
                     $this->create([
@@ -77,10 +105,30 @@ class ProductMediaRepository extends Repository
                     if (is_numeric($index = $previousIds->search($indexOrModelId))) {
                         $previousIds->forget($index);
                     }
-
-                    $this->update([
-                        'position' => ++$position,
-                    ], $indexOrModelId);
+                   
+                    $deg =  $data["img"][$c];
+                    $c++;
+                    $manager = new ImageManager();
+                    $path = $this->getProductDirectory($product) . '/' . Str::random(40) . '.webp';
+                   
+                    if($deg!=""){    
+                        $l=(explode(":",$deg));
+                        $path = "./storage/".$l[0];
+                        
+                        $image = $manager->make($path)
+                        ->rotate(-intval($l[1]))
+                        ->save($path);
+                        $this->update([
+                            'path'=>$l[0],
+                            'position' => ++$position,
+                        ], $indexOrModelId);
+                    }else{    
+                    
+                        $this->update([
+                            'position' => ++$position,
+                        ], $indexOrModelId);
+                    }
+                    
                 }
             }
         }

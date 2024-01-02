@@ -615,7 +615,7 @@ return [
 
                     'cross-sells' => [
                         'empty-info' => 'Ajoutez des produits de vente croisée en un clin d\'œil.',
-                        'info'       => 'À côté du panier d\'achat, vous trouverez ces produits "achat impulsif" positionnés en tant que produits de vente croisée pour compléter les articles déjà ajoutés à votre panier.',
+                        'info'       => 'À côté du panier d\'achat, vous trouverez ces produits achat impulsif positionnés en tant que produits de vente croisée pour compléter les articles déjà ajoutés à votre panier.',
                         'title'      => 'Produits de vente croisée',
                     ],
 
@@ -3000,21 +3000,21 @@ return [
                     'admin-name'            => 'Admin-Name',
                     'admin-name-tip'        => 'Dieser Name wird in allen Admin-E-Mails angezeigt.',
                     'admin-email'           => 'Admin-E-Mail',
-                    'admin-email-tip'       => 'Diese E-Mail-Adresse wird für den Empfang von E-Mails in diesem Kanal verwendet.',
+                    'admin-email-tip'       => 'Cette adresse e-mail est utilisée pour recevoir des e-mails dans ce canal.',
                     'admin-page-limit'      => 'Standardseitenlimit pro Seite (Admin)',
                     'email-sender-name'     => 'Name des E-Mail-Senders',
                     'email-sender-name-tip' => 'Dieser Name wird im Posteingang des Kunden angezeigt.',
-                    'info'                  => 'Legen Sie den Namen des E-Mail-Senders, die E-Mail-Adresse des Geschäfts, den Namen des Administrators und die E-Mail-Adresse des Administrators fest.',
+                    'info'                  => 'Définissez le nom de l\'expéditeur de l\'e-mail, l\'adresse e-mail de la boutique, le nom de l\'administrateur et l\'adresse e-mail de l\'administrateur.',
                     'shop-email-from'       => 'E-Mail-Adresse des Geschäfts',
                     'shop-email-from-tip'   => 'E-Mail-Adresse, von der aus Kunden E-Mails erhalten.',
-                    'title'                 => 'E-Mail-Einstellungen',
+                    'title'                 => 'Paramètres de messagerie',
                 ],
 
                 'notifications' => [
                     'customer-registration-confirmation-mail-to-admin' => 'Senden Sie nach Kundenregistrierung eine Bestätigungs-E-Mail an den Administrator',
                     'customer'                                         => 'Senden Sie nach der Registrierung dem Kunden Anmeldeinformationen',
                     'cancel-order'                                     => 'Senden Sie nach Stornierung einer Bestellung eine Benachrichtigung',
-                    'info'                                             => '"Benachrichtigungen" sind Nachrichten oder Warnungen, die Benutzer über Ereignisse, Updates oder Aktionen informieren und die Benutzeroptionen und das Bewusstsein erhöhen.',
+                    'info'                                             => 'Messages ou alertes qui informent les utilisateurs d\'événements, de mises à jour ou d\'actions et qui augmentent les options et la sensibilisation des utilisateurs.',
                     'new-admin'                                        => 'Senden Sie nach der Bestellung an den Administrator eine Bestätigungs-E-Mail',
                     'new-invoice'                                      => 'Senden Sie nach Erstellung einer neuen Rechnung eine Benachrichtigungs-E-Mail an den Kunden',
                     'new-refund'                                       => 'Senden Sie nach Erstellung einer neuen Rückerstattung eine Benachrichtigungs-E-Mail an den Kunden',
@@ -3022,18 +3022,18 @@ return [
                     'new-inventory-source'                             => 'Senden Sie nach Erstellung einer neuen Lagerquelle eine Benachrichtigungs-E-Mail',
                     'registration'                                     => 'Senden Sie nach Kundenregistrierung eine Bestätigungs-E-Mail',
                     'new-order'                                        => 'Senden Sie nach Bestellung eine Bestätigungs-E-Mail an den Kunden',
-                    'title'                                            => 'Benachrichtigungen',
+                    'title'                                            => 'Notifications',
                     'verification'                                     => 'Senden Sie nach Kundenregistrierung eine Verifizierungs-E-Mail',
                 ],
             ],
 
             'sales' => [
-                'info'  => 'Verkauf',
-                'title' => 'Verkauf',
+                'info'  => 'Expédition',
+                'title' => 'Expédition & Facturation',
 
                 'shipping' => [
-                    'info'  => 'Versandinformationen festlegen.',
-                    'title' => 'Versand',
+                    'info'  => 'Informations d\'expédition',
+                    'title' => 'Expédition',
 
                     'origin' => [
                         'bank-details'   => 'Bankdaten',
@@ -3051,33 +3051,33 @@ return [
                 ],
 
                 'shipping-methods' => [
-                    'info'  => 'Versandmethodeninformationen festlegen',
-                    'title' => 'Versandmethoden',
+                    'info'  => 'Définir les informations sur la méthode d\'expédition',
+                    'title' => 'Méthodes d\'expédition',
 
                     'free-shipping' => [
-                        'description' => 'Beschreibung',
-                        'page-title'  => 'Kostenloser Versand',
+                        'description' => 'Description',
+                        'page-title'  => 'Livraison gratuite',
                         'status'      => 'Status',
-                        'title-info'  => '"Kostenloser Versand" bezeichnet eine Versandmethode, bei der die Versandkosten nach dem Kauf der Produkte durch den Verkäufer übernommen werden.',
-                        'title'       => 'Titel',
+                        'title-info'  => 'Désigne une méthode d\'expédition dans laquelle les frais de livraison sont pris en charge par le vendeur après l\'achat des produits.',
+                        'title'       => 'Titre',
                     ],
 
                     'flat-rate-shipping' => [
-                        'description' => 'Beschreibung',
-                        'page-title'  => 'Pauschalversand',
-                        'rate'        => 'Satz',
+                        'description' => 'Description',
+                        'page-title'  => 'Envoi forfaitaire',
+                        'rate'        => 'Taux',
                         'status'      => 'Status',
                         'title'       => 'Titel',
-                        'title-info'  => 'Pauschalversand ist eine Versandmethode, bei der eine festgelegte Gebühr für ein Paket basierend auf Gewicht, Größe oder Entfernung gezahlt wird. Sie bietet eine einfache Versandkostenoption und kann für Kunden und Verkäufer vorteilhaft sein.',
+                        'title-info'  => 'Méthode d\'expédition qui consiste à payer des frais fixes pour un colis en fonction du poids, de la taille ou de la distance. Elle offre une option de frais de port simple et peut être avantageuse pour les clients et les vendeurs.',
                         'type'        => 'Typ',
                     ],
                 ],
 
                 'payment-methods' => [
-                    'page-title'                     => 'Zahlungsmethoden',
-                    'info'                           => 'Zahlungsinformationen festlegen',
+                    'page-title'                     => 'Méthodes de paiement',
+                    'info'                           => 'Définir les informations de paiement',
                     'cash-on-delivery'               => 'Nachnahme',
-                    'cash-on-delivery-info'          => 'Barzahlung für Produkte oder Dienstleistungen durch Kunden nach Erhalt.',
+                    'cash-on-delivery-info'          => 'Paiement en espèces des produits ou services par les clients après réception.',
                     'description'                    => 'Beschreibung',
                     'title'                          => 'Titel',
                     'instructions'                   => 'Anweisungen',
@@ -3109,8 +3109,8 @@ return [
                 ],
 
                 'order-settings' => [
-                    'info'  => 'Bestellnummer und Mindestbestellung festlegen.',
-                    'title' => 'Bestelleinstellungen',
+                    'info'  => 'Définir le numéro de commande et la commande minimale',
+                    'title' => 'Paramètres de commande',
 
                     'order-number' => [
                         'generator'   => 'Bestellnummer-Generator',
@@ -3129,8 +3129,8 @@ return [
                 ],
 
                 'invoice-settings' => [
-                    'info'  => 'Rechnungsnummer, Zahlungsbedingungen, Rechnungsdesign und Rechnungserinnerungen festlegen.',
-                    'title' => 'Rechnungseinstellungen',
+                    'info'  => 'Définir le numéro de facture, les conditions de paiement, le design de la facture et les rappels de facture.',
+                    'title' => 'Paramètres de facturation',
 
                     'invoice-number' => [
                         'generator'  => 'Rechnungsnummer-Generator',
@@ -3165,11 +3165,11 @@ return [
             ],
 
             'taxes' => [
-                'title' => 'Steuern',
+                'title' => 'Impôts',
 
                 'catalog' => [
-                    'title'      => 'Katalog',
-                    'title-info' => 'Preisfestlegung und Bestimmung als Standardstandort',
+                    'title'      => 'Catalogue',
+                    'title-info' => 'Fixation des prix et désignation comme site standard',
 
                     'pricing' => [
                         'title'         => 'Preisfestlegung',

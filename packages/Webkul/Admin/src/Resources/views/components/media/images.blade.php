@@ -71,6 +71,7 @@
                             :width="width"
                             :height="height"
                             @onRemove="remove($event)"
+                            @onRotate="rotate($event)"
                         ></v-media-image-item>
                     </template>
                 </draggable>
@@ -98,6 +99,7 @@
             <!-- Image Preview -->
             <img
                 :src="image.url"
+                :id="image.id"
                 class="min-h-[120px]"
                 :style="{'width': this.width, 'height': this.height}"
             />
@@ -105,21 +107,26 @@
             <div class="flex flex-col justify-between invisible w-full p-[11px] bg-white dark:bg-gray-900 absolute top-0 bottom-0 opacity-80 transition-all group-hover:visible">
                 <!-- Image Name -->
                 <p class="text-[12px] text-gray-600 dark:text-gray-300 font-semibold break-all"></p>
-
+               
                 <!-- Actions -->
                 <div class="flex justify-between">
                     <span
                         class="icon-delete text-[24px] p-[6px] rounded-[6px] cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800"
                         @click="remove"
                     ></span>
-
+                   
                     <label
                         class="icon-edit text-[24px] p-[6px] rounded-[6px] cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800"
                         :for="$.uid + '_imageInput_' + index"
                     ></label>
+                    <span
+                        class="icon-arrow-left text-[24px] p-[6px] rounded-[6px] cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800"
+                        @click="rotate"
+                    ></span>
 
                     <input type="hidden" :name="name + '[' + image.id + ']'" v-if="! image.is_new"/>
-
+                    <input type="hidden" :id="'uid'+image.id" name="img[]"/>
+                   
                     <input
                         type="file"
                         :name="name + '[]'"
@@ -133,7 +140,7 @@
             </div>
         </div>
     </script>
-
+   
     <script type="module">
         app.component('v-media-images', {
             template: '#v-media-images-template',
@@ -143,7 +150,10 @@
                     type: String, 
                     default: 'images',
                 },
-
+                id:{
+                    type: String, 
+                    default: 'images',
+                },
                 allowMultiple: {
                     type: Boolean,
                     default: false,
@@ -230,6 +240,7 @@
                         this.images.push({
                             id: 'image_' + this.images.length,
                             url: '',
+                            name:"img"+this.images.length,
                             file: file
                         });
                     });
@@ -239,6 +250,31 @@
                     let index = this.images.indexOf(image);
 
                     this.images.splice(index, 1);
+                },
+                rotate(image) {
+                    console.log(image);
+                    if(image.id==""){
+                        console.log(image.name);
+                    }
+                    let index = this.images.indexOf(image);
+                    let ole = image.id;
+                    let rotated = document.getElementById(ole);
+                    let input = document.getElementById("uid"+ole);
+                    console.log(input);
+                    if(input.value.split(':')[1]=="90"){
+                        rotated.style.transform = 'rotate(180deg)';
+                        input.value= image.path+":180";
+                    }else if(input.value.split(':')[1]=="180"){
+                        rotated.style.transform = 'rotate(270deg)';
+                        input.value=image.path+":270";
+                    }else if(input.value.split(':')[1]=="270"){
+                        rotated.style.transform = 'rotate(360deg)';
+                        input.value=image.path+":0";
+                    }else{
+                        input.value=image.path+":90";
+                        rotated.style.transform = 'rotate(90deg)';
+                    }
+                    this.images.at(index).wol = input.value;
                 }
             }
         });
@@ -283,12 +319,14 @@
                 remove() {
                     this.$emit('onRemove', this.image)
                 },
+                rotate() {
+                    this.$emit('onRotate', this.image)
+                },
 
                 setFile(file) {
                     this.image.is_new = 1;
-
                     const dataTransfer = new DataTransfer();
-
+                    
                     dataTransfer.items.add(file);
 
                     this.$refs[this.$.uid + '_imageInput_' + this.index].files = dataTransfer.files;
