@@ -97,6 +97,7 @@ class ProductDataGrid extends DataGrid
         $this->addFilter('name', 'product_flat.name');
         $this->addFilter('type', 'product_flat.type');
         $this->addFilter('status', 'product_flat.status');
+        $this->addFilter('category_name', 'ct.name');
         $this->addFilter('attribute_family', 'af.name');
 
         return $queryBuilder;
@@ -192,11 +193,11 @@ class ProductDataGrid extends DataGrid
             'index'      => 'category_name',
             'label'      => trans('admin::app.catalog.products.index.datagrid.category'),
             'type'       => 'string',
-            'searchable' => false,
-            'filterable' => false,
+            'searchable' => true,
+            'filterable' => true,
             'sortable'   => false,
         ]);
-
+   
         $this->addColumn([
             'index'      => 'type',
             'label'      => trans('admin::app.catalog.products.index.datagrid.type'),
@@ -268,6 +269,28 @@ class ProductDataGrid extends DataGrid
                     [
                         'label' => trans('admin::app.catalog.products.index.datagrid.disable'),
                         'value' => 0,
+                    ],
+                ],
+            ]);
+        }
+
+        if (bouncer()->hasPermission('catalog.products.mass-update')) {
+            $this->addMassAction([
+                'title'   => "Changer de catégorie",
+                'url'     => route('admin.catalog.products.mass_update'),
+                'method'  => 'POST',
+                'options' => [
+                    [
+                        'label' => 'Fille',
+                        'value' => "fille",
+                    ],
+                    [
+                        'label' => 'Garçon',
+                        'value' => "garçon",
+                    ],
+                    [
+                        'label' => 'Les deux / aucune',
+                        'value' => "both",
                     ],
                 ],
             ]);

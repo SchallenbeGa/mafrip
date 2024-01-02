@@ -151,7 +151,6 @@ abstract class AbstractType
         $product->update($data);
 
         $route = request()->route()?->getName();
-
         foreach ($product->attribute_family->custom_attributes as $attribute) {
             if (
                 $attribute->type === 'boolean'
@@ -159,7 +158,6 @@ abstract class AbstractType
             ) {
                 $data[$attribute->code] = ! empty($data[$attribute->code]);
             }
-
             if (
                 $attribute->type == 'multiselect'
                 || $attribute->type == 'checkbox'
@@ -256,13 +254,18 @@ abstract class AbstractType
         }
 
         if ($route == 'admin.catalog.products.mass_update') {
+            if (isset($data['categories'])) {
+               
+                $product->categories()->sync($data['categories']);
+            }
+            
             return $product;
         }
-
+        
         if (! isset($data['categories'])) {
             $data['categories'] = [];
         }
-
+        
         $product->categories()->sync($data['categories']);
 
         $product->up_sells()->sync($data['up_sells'] ?? []);

@@ -201,6 +201,7 @@
                             this.available.actions = actions;
 
                             this.available.massActions = mass_actions;
+                      
 
                             this.available.records = records;
 
@@ -602,8 +603,10 @@
                                 case 'post':
                                 case 'put':
                                 case 'patch':
+                                    console.log(this.applied.massActions);
                                     this.$axios[method](action.url, {
                                             indices: this.applied.massActions.indices,
+                                            job : action.title,
                                             value: this.applied.massActions.value,
                                         })
                                         .then(response => {
