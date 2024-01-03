@@ -21,7 +21,7 @@
     @foreach ($inventorySources as $inventorySource)
         @php
             $qty = old('inventories[' . $inventorySource->id . ']')
-                ?: ($product->inventories->where('inventory_source_id', $inventorySource->id)->pluck('qty')->first() ?? 0);
+                ?: ($product->inventories->where('inventory_source_id', $inventorySource->id)->pluck('qty')->first() ?? 1);
         @endphp
 
         <x-admin::form.control-group>
