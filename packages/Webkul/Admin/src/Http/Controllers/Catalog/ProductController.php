@@ -56,9 +56,9 @@ class ProductController extends Controller
     public function index()
     {
         if (request()->ajax()) {
+            
             return app(ProductDataGrid::class)->toJson();
         }
-
         $families = $this->attributeFamilyRepository->all();
 
         return view('admin::catalog.products.index', compact('families'));
@@ -70,9 +70,8 @@ class ProductController extends Controller
      * @return \Illuminate\View\View
      */
     public function create()
-    {
+    {   
         $families = $this->attributeFamilyRepository->all();
-
         $configurableFamily = null;
 
         if ($familyId = request()->get('family')) {
@@ -89,10 +88,11 @@ class ProductController extends Controller
      */
     public function store()
     {
+        $last_sku = $this->productRepository->latest()->limit(1)->get()[0]->sku + 1;
+       
         $this->validate(request(), [
             'type'                => 'required',
             'attribute_family_id' => 'required',
-            'sku'                 => ['required', 'unique:products,sku', new Slug],
             'super_attributes'    => 'array|min:1',
             'super_attributes.*'  => 'array|min:1',
         ]);
@@ -116,11 +116,10 @@ class ProductController extends Controller
         $data = request()->only([
             'type',
             'attribute_family_id',
-            'sku',
             'super_attributes',
             'family'
         ]);
-
+        $data["sku"] = $last_sku;
         $product = $this->productRepository->create($data);
 
         Event::dispatch('catalog.product.create.after', $product);

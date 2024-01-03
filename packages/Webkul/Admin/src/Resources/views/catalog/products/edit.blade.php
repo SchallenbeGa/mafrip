@@ -128,21 +128,25 @@
                         @php
                             $customAttributes = $product->getEditableAttributes($group);
                         @endphp
-
+                       
+                        @if ($group->name != 'Meta Description' & $group->name != 'Vidéos')
                         @if (count($customAttributes))
                             {!! view_render_event('bagisto.admin.catalog.product.edit.form..' . $group->name . '.before', ['product' => $product]) !!}
-
+                           
                             <div class="relative p-[16px] bg-white dark:bg-gray-900 rounded-[4px] box-shadow">
-                                <p class="text-[16px] text-gray-800 dark:text-white font-semibold mb-[16px]">
+                          
+                            <p class="text-[16px] text-gray-800 dark:text-white font-semibold mb-[16px]">
                                     {{ $group->name }}
                                 </p>
-
+                                
                                 @if ($group->name == 'Meta Description')
                                     {{-- SEO Title & Description Blade Componnet --}}
                                     <x-admin::seo/>
                                 @endif
 
                                 @foreach ($customAttributes as $attribute)
+                               
+                                @if($attribute->admin_name != 'Tax Category' & $attribute->admin_name != 'Vidéos' & $attribute->admin_name != 'Cost' & $attribute->admin_name != 'Special Price' & $attribute->admin_name != 'Special Price From' & $attribute->admin_name != 'Special Price To' & $attribute->admin_name != 'Length' & $attribute->admin_name != 'Width' & $attribute->admin_name != 'Height')
                                     {!! view_render_event('bagisto.admin.catalog.product.edit.form.' . $group->name . '.controls.before', ['product' => $product]) !!}
 
                                     <x-admin::form.control-group>
@@ -159,17 +163,18 @@
                                     </x-admin::form.control-group>
 
                                     {!! view_render_event('bagisto.admin.catalog.product.edit.form.' . $group->name . '.controls.before', ['product' => $product]) !!}
+                                @endif
                                 @endforeach
 
-                                @includeWhen($group->name == 'Price', 'admin::catalog.products.edit.price.group')
-
+                               
                                 @includeWhen(
                                     $group->name == 'Inventories' && ! $product->getTypeInstance()->isComposite(),
                                     'admin::catalog.products.edit.inventories'
                                 )
                             </div>
-
+                         
                             {!! view_render_event('bagisto.admin.catalog.product.edit.form.' . $group->name . '.after', ['product' => $product]) !!}
+                        @endif
                         @endif
                     @endforeach
 
@@ -177,19 +182,9 @@
                         {{-- Images View Blade File --}}
                         @include('admin::catalog.products.edit.images')
 
-                        {{-- Videos View Blade File --}}
-                        @include('admin::catalog.products.edit.videos')
+                      
 
-                        {{-- Product Type View Blade File --}}
-                        @includeIf('admin::catalog.products.edit.types.' . $product->type)
-
-                        {{-- Related, Cross Sells, Up Sells View Blade File --}}
-                        @include('admin::catalog.products.edit.links')
-
-                        {{-- Include Product Type Additional Blade Files If Any --}}
-                        @foreach ($product->getTypeInstance()->getAdditionalViews() as $view)
-                            @includeIf($view)
-                        @endforeach
+                       
                     @else
                         {{-- Categories View Blade File --}}
                         @include('admin::catalog.products.edit.categories')
