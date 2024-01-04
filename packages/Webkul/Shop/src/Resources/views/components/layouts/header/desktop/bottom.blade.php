@@ -10,7 +10,7 @@
             class="place-self-start -mt-[4px]"
             aria-label="Bagisto "
         >
-            MaFrip
+            Roudoudou
         </a>
 
         <v-desktop-category>

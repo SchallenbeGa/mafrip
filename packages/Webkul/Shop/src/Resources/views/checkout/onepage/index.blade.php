@@ -24,7 +24,7 @@
                     class="flex min-h-[30px]"
                     aria-label="Bagisto "
                 >
-                   MaFrip
+                   Roudoudou
                 </a>
             </div>
         </div>

@@ -23,7 +23,7 @@
                 <x-slot:header>
                     <div class="flex justify-between items-center">
                         <a href="{{ route('shop.home.index') }}">
-                            Mafrip
+                            Roudoudou
                         </a>
                     </div>
                 </x-slot:header>
@@ -120,7 +120,7 @@
                 class="max-h-[30px]"
                 aria-label="Bagisto"
             >
-               MaFrip
+               Roudoudou
             </a>
         </div>
 

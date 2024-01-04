@@ -23,7 +23,7 @@
                 class="m-[0_auto_20px_auto]"
                 aria-label="Bagisto "
             >
-              MaFrip
+              Roudoudou
             </a>
         </div>
 
