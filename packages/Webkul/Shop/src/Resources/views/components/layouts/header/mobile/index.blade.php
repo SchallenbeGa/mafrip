@@ -43,7 +43,7 @@
                                 href="{{ route('shop.customer.session.create') }}"
                                 class="flex text-[16px] font-medium"
                             >
-                                @lang('Sign up or Login')
+                                S'inscrire ou se connecter
 
                                 <i class="icon-double-arrow text-[24px] ml-[10px]"></i>
                             </a>
