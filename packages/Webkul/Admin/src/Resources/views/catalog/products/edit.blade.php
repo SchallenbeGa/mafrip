@@ -168,7 +168,7 @@
 
                                
                                 @includeWhen(
-                                    $group->name == 'Inventories' && ! $product->getTypeInstance()->isComposite(),
+                                    $group->name == 'Inventaire' && ! $product->getTypeInstance()->isComposite(),
                                     'admin::catalog.products.edit.inventories'
                                 )
                             </div>
