@@ -72,9 +72,6 @@ class ProductMediaRepository extends Repository
                             $image = $manager->make($file)
                             ->rotate(-intval($l[1]))
                             ->save("./storage/".$path);
-                        }else{    
-                            $image = $manager->make($file)
-                            ->save("./storage/".$path);
                         }
                        
                         // #Storage::put($path, $image)
