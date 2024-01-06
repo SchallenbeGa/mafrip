@@ -65,7 +65,7 @@ class ProductMediaRepository extends Repository
                         $path = $this->getProductDirectory($product) . '/' . Str::random(40) . '.webp';
                         if (!file_exists("./storage/".$this->getProductDirectory($product))) {
                             mkdir("./storage/".$this->getProductDirectory($product), 0777, true);
-                            chmod("./storage/".$this->getProductDirectory($product), 777);
+                            chmod("./storage/".$this->getProductDirectory($product), 0777);
                         }
                         if($deg!=""){    
                             $l=(explode(":",$deg));
