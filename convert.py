@@ -15,11 +15,12 @@ for subdir, dirs, files in os.walk(rootdir):
         input_array = np.array(input_image)
 
         # Apply background removal using rembg
-        output_array = rembg.remove(input_array,bgcolor=[245,245,245,245])
+        output_array = rembg.remove(input_array,bgcolor=[255,255,255,255])
 
         # Create a PIL Image from the output array
         output_image = Image.fromarray(output_array)
 
         # Save the output image
         rb = output_image.convert('RGB')
+        print(os.path.join(subdir, file))
         rb.save(os.path.join(subdir, file))
