@@ -289,6 +289,14 @@ class ProductDataGrid extends DataGrid
                         'value' => "garçon",
                     ],
                     [
+                        'label' => 'Vetement garçon',
+                        'value' => "v_garçon",
+                    ],
+                    [
+                        'label' => 'Vetement fille',
+                        'value' => "v_fille",
+                    ],
+                    [
                         'label' => 'Les deux / aucune',
                         'value' => "both",
                     ],

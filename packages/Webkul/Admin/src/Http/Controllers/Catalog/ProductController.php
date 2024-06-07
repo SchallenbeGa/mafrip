@@ -322,6 +322,15 @@ class ProductController extends Controller
                 $product = $this->productRepository->update([
                     'categories'  => [2,3],
                 ], $productId);
+            }
+            elseif($massUpdateRequest->input('value')=="v_fille"){
+                $product = $this->productRepository->update([
+                    'categories'  => [334],
+                ], $productId);
+            }elseif($massUpdateRequest->input('value')=="v_garçon"){
+                $product = $this->productRepository->update([
+                    'categories'  => [332],
+                ], $productId);
             }else{
                 $product = $this->productRepository->update([
                     'status'  => $massUpdateRequest->input('value'),
