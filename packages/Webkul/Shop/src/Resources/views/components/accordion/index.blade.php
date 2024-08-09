@@ -1,5 +1,5 @@
 @props([
-    'isActive' => true,
+    'isActive' => false,
 ])
 
 <v-accordion
