@@ -96,10 +96,7 @@
                                         <slot name="header"></slot>
 
                                         <div class="absolute top-5 ltr:right-3 rtl:left-3">
-                                            <span
-                                                class="icon-cross text-[30px] cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-950 hover:rounded-[6px]"
-                                                @click="close"
-                                            >
+                                          
                                             </span>
                                         </div>
                                     </div>
