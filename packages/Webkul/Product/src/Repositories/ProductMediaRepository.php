@@ -98,7 +98,7 @@ class ProductMediaRepository extends Repository
                         }
                         
                     }
-
+                    dd($path);
                     $this->create([
                         'type'       => $uploadFileType,
                         'path'        => $path,
