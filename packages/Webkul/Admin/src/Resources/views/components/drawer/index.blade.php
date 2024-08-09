@@ -97,7 +97,6 @@
 
                                         <div class="absolute top-5 ltr:right-3 rtl:left-3">
                                           
-                                            </span>
                                         </div>
                                     </div>
 
