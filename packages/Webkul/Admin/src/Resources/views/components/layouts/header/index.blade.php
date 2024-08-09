@@ -130,11 +130,11 @@
     <!-- Drawer Header -->
     <x-slot:header>
         <div class="flex justify-between items-center">
-            @if (core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode()))
+            <!-- @if (core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode()))
                 <img src="{{ Storage::url(core()->getConfigData('general.design.admin_logo.logo_image', core()->getCurrentChannelCode())) }}" alt="{{ config('app.name') }}" style="height: 40px; width: 110px;"/>
             @else
                 <img src="{{ bagisto_asset('images/logo.svg') }}">
-            @endif
+            @endif -->
         </div>
     </x-slot:header>
 
