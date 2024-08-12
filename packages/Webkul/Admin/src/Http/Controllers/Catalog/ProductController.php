@@ -331,6 +331,22 @@ class ProductController extends Controller
                 $product = $this->productRepository->update([
                     'categories'  => [332],
                 ], $productId);
+            }elseif($massUpdateRequest->input('value')=="v_06month"){
+                $product = $this->productRepository->update([
+                    'categories'  => [396],
+                ], $productId);
+            }elseif($massUpdateRequest->input('value')=="v_1year"){
+                $product = $this->productRepository->update([
+                    'categories'  => [397],
+                ], $productId);
+            }elseif($massUpdateRequest->input('value')=="v_2year"){
+                $product = $this->productRepository->update([
+                    'categories'  => [398],
+                ], $productId);
+            }elseif($massUpdateRequest->input('value')=="v_3year"){
+                $product = $this->productRepository->update([
+                    'categories'  => [399],
+                ], $productId);
             }else{
                 $product = $this->productRepository->update([
                     'status'  => $massUpdateRequest->input('value'),

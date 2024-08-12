@@ -293,8 +293,20 @@ class ProductDataGrid extends DataGrid
                         'value' => "v_garçon",
                     ],
                     [
-                        'label' => 'Vetement fille',
-                        'value' => "v_fille",
+                        'label' => 'Vetement 0-6mois',
+                        'value' => "v_06month",
+                    ],
+                    [
+                        'label' => 'Vetement 6-12mois',
+                        'value' => "v_1year",
+                    ],
+                    [
+                        'label' => 'Vetement 1-2 ans',
+                        'value' => "v_2year",
+                    ],
+                    [
+                        'label' => 'Vetement 2-3 ans',
+                        'value' => "v_3year",
                     ],
                     [
                         'label' => 'Les deux / aucune',
