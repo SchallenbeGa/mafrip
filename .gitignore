@@ -27,3 +27,6 @@ package-lock.json
 /vendor
 yarn.lock
 yarn-error.log
+/lib
+/bin
+/share
