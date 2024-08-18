@@ -25,8 +25,7 @@
                             <img
                                 src="{{ bagisto_asset('images/logo.svg', 'shop') }}"
                                 alt="{{ config('app.name') }}"
-                                width="131"
-                                height="29"
+                               
                                 style="width: 156px;height: 40px;"
                             />
                         @endif
