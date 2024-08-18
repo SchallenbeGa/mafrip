@@ -18,7 +18,11 @@
 
         <div class="flex justify-between items-center mt-[30px]">
             <h2 class="text-[26px] font-medium">
+            @if (request()->query('query'))
                 @lang('shop::app.search.title', ['query' => request()->query('query')])
+            @else
+                Voilà tout !
+            @endif
             </h2>
         </div>
     </div>

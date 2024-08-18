@@ -163,9 +163,7 @@
                 },
 
                 handleProgressBar() {
-                    this.$refs.progress.style.left = (this.minRange / this.allowedMaxRange) * 100 + '%';
-
-                    this.$refs.progress.style.right = 100 - (this.maxRange / this.allowedMaxRange) * 100 + '%';
+                   
                 },
 
                 change() {

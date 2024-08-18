@@ -19,7 +19,8 @@
                 <div class="relative w-full h-[4px] bg-gray-200 rounded-2xl">
                     <div
                         ref="progress"
-                        class="absolute left-1/4 right-0 h-full bg-navyBlue rounded-xl"
+                        style="right:unset !important"
+                        class="absolute right-0 h-full bg-navyBlue rounded-xl"
                     >
                     </div>
 
@@ -165,9 +166,7 @@
                 },
 
                 handleProgressBar() {
-                    this.$refs.progress.style.left = (this.minRange / this.allowedMaxRange) * 100 + '%';
-
-                    this.$refs.progress.style.right = 100 - (this.maxRange / this.allowedMaxRange) * 100 + '%';
+                   
                 },
 
                 change() {
