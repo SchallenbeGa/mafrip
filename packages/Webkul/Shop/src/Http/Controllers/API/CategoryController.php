@@ -60,8 +60,8 @@ class CategoryController extends APIController
     {
         if (! request('category_id')) {
             $filterableAttributes = $this->attributeRepository->getFilterableAttributes();
-
-            return AttributeResource::collection($filterableAttributes);
+            
+            return AttributeResource::collection($filterableAttributes->where('is_filterable', 1));
         }
 
         $category = $this->categoryRepository->findOrFail(request('category_id'));
