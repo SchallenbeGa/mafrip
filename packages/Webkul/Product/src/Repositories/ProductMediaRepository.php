@@ -3,9 +3,9 @@
 namespace Webkul\Product\Repositories;
 
 use Exception;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
 use Webkul\Core\Eloquent\Repository;
 
@@ -29,79 +29,46 @@ class ProductMediaRepository extends Repository
     /**
      * Get product directory.
      *
-     * @param  \Webkul\Product\Contracts\Product $product
-     * @return string
+     * @param  \Webkul\Product\Contracts\Product  $product
      */
     public function getProductDirectory($product): string
     {
-        return 'product/' . $product->id;
+        return 'product/'.$product->id;
     }
-    
+
     /**
      * Upload.
      *
      * @param  array  $data
      * @param  \Webkul\Product\Contracts\Product  $product
-     * @param  string  $uploadFileType
-     * @return void
      */
     public function upload($data, $product, string $uploadFileType): void
     {
         /**
          * Previous model ids for filtering.
          */
-        
         $previousIds = $this->resolveFileTypeQueryBuilder($product, $uploadFileType)->pluck('id');
-  
+
         $position = 0;
-        if (!empty($data[$uploadFileType]['files'])) {
-            $c=0;
+
+        if (! empty($data[$uploadFileType]['files'])) {
             foreach ($data[$uploadFileType]['files'] as $indexOrModelId => $file) {
                 if ($file instanceof UploadedFile) {
                     if (Str::contains($file->getMimeType(), 'image')) {
-                        $deg =  $data["img"][$indexOrModelId];
                         $manager = new ImageManager();
-                        
-                        $path = $this->getProductDirectory($product) . '/' . Str::random(40) . '.webp';
-                        if (!file_exists("./storage/".$this->getProductDirectory($product))) {
-                            mkdir("./storage/".$this->getProductDirectory($product), 0777, true);
-                            chmod("./storage/".$this->getProductDirectory($product), 0777);
-                        }
-                        if($deg!=""){    
-                            $l=(explode(":",$deg));
-                    
-                            $image = $manager->make($file)
-                            ->rotate(-intval($l[1]))
-                            ->save("./storage/".$path);
-                        }else{    
-                            $image = $manager->make($file)
-                            ->save("./storage/".$path);
-                        }
-                       
-                        // #Storage::put($path, $image)
-                        // Storage::put("ole/tstew.jpg", $image);
+
+                        $image = $manager->make($file)->encode('webp');
+
+                        $path = $this->getProductDirectory($product).'/'.Str::random(40).'.webp';
+
+                        Storage::put($path, $image);
                     } else {
-                        $deg =  $data["img"][$c];
-                      
-                        $manager = new ImageManager();
-                        
-                        $path = $this->getProductDirectory($product) . '/' . Str::random(40) . '.webp';
-                        if($deg!=""){    
-                            $l=(explode(":",$deg));
-                            $image = $manager->make($file)
-                            ->rotate(-intval($l[1]))
-                            ->save("./storage/".$path);
-                        }else{    
-                        
-                            $image = $manager->make($file)
-                            ->save("./storage/".$path);
-                        }
-                        
+                        $path = $file->store($this->getProductDirectory($product));
                     }
-                    
+
                     $this->create([
                         'type'       => $uploadFileType,
-                        'path'        => $path,
+                        'path'       => $path,
                         'product_id' => $product->id,
                         'position'   => ++$position,
                     ]);
@@ -109,30 +76,10 @@ class ProductMediaRepository extends Repository
                     if (is_numeric($index = $previousIds->search($indexOrModelId))) {
                         $previousIds->forget($index);
                     }
-                   
-                    $deg =  $data["img"][$c];
-                    $c++;
-                    $manager = new ImageManager();
-                    $path = $this->getProductDirectory($product) . '/' . Str::random(40) . '.webp';
-                   
-                    if($deg!=""){    
-                        $l=(explode(":",$deg));
-                        $path = "./storage/".$l[0];
-                        
-                        $image = $manager->make($path)
-                        ->rotate(-intval($l[1]))
-                        ->save($path);
-                        $this->update([
-                            'path'=>$l[0],
-                            'position' => ++$position,
-                        ], $indexOrModelId);
-                    }else{    
-                    
-                        $this->update([
-                            'position' => ++$position,
-                        ], $indexOrModelId);
-                    }
-                    
+
+                    $this->update([
+                        'position' => ++$position,
+                    ], $indexOrModelId);
                 }
             }
         }
@@ -151,8 +98,7 @@ class ProductMediaRepository extends Repository
     /**
      * Resolve file type query builder.
      *
-     * @param  \Webkul\Product\Contracts\Product $product
-     * @param  string  $uploadFileType
+     * @param  \Webkul\Product\Contracts\Product  $product
      * @return mixed
      *
      * @throws \Exception

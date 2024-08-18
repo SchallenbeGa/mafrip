@@ -30,3 +30,5 @@ yarn-error.log
 /lib
 /bin
 /share
+/tests
+/storage/locales

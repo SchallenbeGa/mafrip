@@ -41,6 +41,7 @@ def insert_size(products):
                     else:
                         print("No match.daaaamn")
     print(accep)
+    
     return accep
 
 def insert_category(products):

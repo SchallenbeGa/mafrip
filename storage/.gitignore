@@ -1,1 +1,4 @@
-installed
+*
+!locales/
+!theme/
+!.gitignore

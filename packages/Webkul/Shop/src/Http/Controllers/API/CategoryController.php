@@ -21,8 +21,7 @@ class CategoryController extends APIController
         protected AttributeRepository $attributeRepository,
         protected CategoryRepository $categoryRepository,
         protected ProductRepository $productRepository
-    ) {
-    }
+    ) {}
 
     /**
      * Get all categories.
@@ -60,8 +59,8 @@ class CategoryController extends APIController
     {
         if (! request('category_id')) {
             $filterableAttributes = $this->attributeRepository->getFilterableAttributes();
-            
-            return AttributeResource::collection($filterableAttributes->where('is_filterable', 1));
+
+            return AttributeResource::collection($filterableAttributes);
         }
 
         $category = $this->categoryRepository->findOrFail(request('category_id'));
