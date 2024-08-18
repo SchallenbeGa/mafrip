@@ -137,6 +137,7 @@
 
                         <!-- Load More Button -->
                         <button
+                         style="margin-top: 1rem;margin-bottom: 4rem;"
                             class="secondary-button mx-auto mt-[60px] block w-max rounded-2xl px-11 py-3 text-center text-base max-md:rounded-lg max-md:text-sm max-sm:mt-7 max-sm:px-7 max-sm:py-2"
                             @click="loadMoreProducts"
                             v-if="links.next"
