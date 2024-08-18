@@ -1,9 +1,10 @@
 @php
-    if (request()->has('query')) {
-        $title = trans('shop::app.search.title', ['query' => request()->query('query')]);
-    } else {
-        $title = trans('shop::app.search.results');
-    }
+@if (request()->query('query'))
+                @lang('shop::app.search.title', ['query' => request()->query('query')])
+            @else
+                Voilà tout !
+            @endif
+   
 @endphp
 
 <!-- SEO Meta Content -->
