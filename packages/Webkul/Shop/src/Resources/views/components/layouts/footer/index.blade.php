@@ -18,7 +18,7 @@
     ]);
 @endphp
 
-<footer class="mt-9 bg-lightOrange max-sm:mt-10">
+<footer class="mt-9 bg-lightOrange max-sm:mt-10" style="margin-top:1rem;">
    
 </footer>
 
