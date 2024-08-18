@@ -170,13 +170,13 @@
 
                         <!-- Load More Button -->
                         <button
+                        style="margin-top: 1rem;margin-bottom: 4rem;"
                             class="secondary-button mx-auto mt-14 block w-max rounded-2xl px-11 py-3 text-center text-base max-md:rounded-lg max-sm:mt-6 max-sm:px-6 max-sm:py-1.5 max-sm:text-sm"
                             @click="loadMoreProducts"
                             v-if="links.next && ! loader"
                         >
                             @lang('shop::app.categories.view.load-more')
                         </button>
-</br>
                         <button
                             v-else-if="links.next"
                             class="secondary-button mx-auto mt-14 block w-max rounded-2xl px-[74.5px] py-3.5 text-center text-base max-md:rounded-lg max-md:py-3 max-sm:mt-6 max-sm:px-[50.8px] max-sm:py-1.5"
