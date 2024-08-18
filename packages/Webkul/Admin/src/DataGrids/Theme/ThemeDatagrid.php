@@ -3,7 +3,7 @@
 namespace Webkul\Admin\DataGrids\Theme;
 
 use Illuminate\Support\Facades\DB;
-use Webkul\DataGrid\DataGrid;
+use Webkul\Ui\DataGrid\DataGrid;
 
 class ThemeDataGrid extends DataGrid
 {
