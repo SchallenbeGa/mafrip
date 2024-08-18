@@ -65,7 +65,7 @@
                         <x-shop::form.control-group.control
                             type="email"
                             name="email"
-                            class=" blockw-[420px] max-w-full px-[20px] py-[20px] pr-[110px] bg-[#F1EADF] border-[2px] border-[#E9DECC] rounded-[12px] text-xs font-medium max-1060:w-full"
+                            class=" blockw-[420px] max-w-full px-[20px] py-[20px] pr-[110px] border-[2px] border-[#E9DECC] rounded-[12px] text-xs font-medium max-1060:w-full"
                             rules="required|email"
                             label="Email"
                             placeholder="email@example.com"
@@ -90,7 +90,7 @@
         </div>
     @endif
 
-    <div class="flex justify-between  px-[60px] py-[13px] bg-[#F1EADF]">
+    <div class="flex justify-between  px-[60px] py-[13px]">
         <p class="text-[14px] text-[#4D4D4D]">
             @lang('shop::app.components.layouts.footer.footer-text')
         </p>

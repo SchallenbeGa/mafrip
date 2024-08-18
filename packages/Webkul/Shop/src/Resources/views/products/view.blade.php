@@ -158,7 +158,7 @@
             </x-slot:header>
 
             <x-slot:content>
-                <p class="text-[#6E6E6E] text-[18px] max-1180:text-[14px] mb-[20px]">
+                <p class="text-[#6E6E6E] text-[18px] max-1180:text-[14px] mb-[20px]" style="padding: 1rem;">
                     {!! $product->description !!}
                 </p>
             </x-slot:content>
