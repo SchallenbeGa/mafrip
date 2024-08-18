@@ -6,7 +6,7 @@
 @endPush
 
 <x-shop::layouts
-    :has-header="false"
+    :has-header="true"
     :has-feature="false"
     :has-footer="false"
 >
