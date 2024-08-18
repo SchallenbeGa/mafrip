@@ -181,7 +181,7 @@
         @if (count($attributeData))
             <x-shop::accordion
                 class="max-md:border-none"
-                :is-active="false"
+                :is-active="true"
             >
                 <x-slot:header class="bg-gray-100 max-md:!py-3 max-sm:!py-2">
                     <p class="text-base font-medium 1180:hidden">
@@ -236,7 +236,7 @@
         <!-- Reviews Accordion -->
         <x-shop::accordion
             class="max-md:border-none"
-            :is-active="false"
+            :is-active="true"
         >
             <x-slot:header
                 class="bg-gray-100 max-md:!py-3 max-sm:!py-2"
