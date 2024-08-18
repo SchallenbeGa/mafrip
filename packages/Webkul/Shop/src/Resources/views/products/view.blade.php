@@ -86,7 +86,7 @@
                     :title="trans('shop::app.products.view.description')"
                     :is-selected="true"
                 >
-                    <div class="container mt-[60px] max-1180:px-5">
+                    <div class="container mt-[60px] max-1180:px-5" style="padding-bottom: 2rem;">
                         <p class="text-lg text-zinc-500 max-1180:text-sm">
                             {!! $product->description !!}
                         </p>
