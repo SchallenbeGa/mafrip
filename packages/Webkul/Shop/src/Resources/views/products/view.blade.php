@@ -104,7 +104,7 @@
                         :is-selected="false"
                     >
                         <div class="container mt-[60px] max-1180:px-5">
-                            <div class="mt-8 grid max-w-max grid-cols-[auto_1fr] gap-4">
+                            <div class="mt-8 grid max-w-max grid-cols-[auto_1fr] gap-4" style="padding-bottom:2rem;">
                                 @foreach ($customAttributeValues as $customAttributeValue)
                                     @if (! empty($customAttributeValue['value']))
                                         <div class="grid">
